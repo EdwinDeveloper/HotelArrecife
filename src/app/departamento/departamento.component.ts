@@ -7,16 +7,34 @@ import { apartment } from '../models/apartment';//se inporta la clase apartment 
 })
 export class DepartamentoComponent implements OnInit {//clase DepartamentoComponent que implementa interfaz OnInit
   public department:Array<apartment>;//Declaro array tipo objetos apartment
+  public direccion:String[];
+  public area:String[];
+  public color:String;
   constructor() {//constructor para llamar el array declarado y asignarle objetos
+    this.direccion=new Array();
+    this.area=new Array();
+    this.color="yellow";
     this.department=[//le asignamos al array de objetos 3 objetos tipo apartment
       new apartment(1,"Av tepic Vallarta","ATV1","Avenue view","School area",false,2500),
-      new apartment(2,"Av tepic Vallarta","ATV2","Avenue view","School area",true,2500),
-      new apartment(3,"Av tepic Vallarta","ATV3","widthout view","School area",false,2500)
+      new apartment(2,"La abuela","ATV2","Avenue view","School area",true,2500),
+      new apartment(3,"Azules","ATV3","widthout view","Footbol stadium",false,2500),
+      new apartment(3,"Azules","ATV4","widthout view","hospital",false,2500)
     ]
   }
 
   ngOnInit() {//se ejecuta al iniciar el componente despues del constructor
-    console.log(this.department);//mostramos en consola el array de objetos
+    //console.log(this.department);//mostramos en consola el array de objetos
+    this.getDirection();
+  }
+  getDirection(){
+      this.department.forEach((apartment,index)=>{
+        this.area.push(apartment.direction);
+           if(this.direccion.indexOf(apartment.location) < 0){
+               this.direccion.push(apartment.location);
+               
+           }
+      });
+      console.log(this.area);
   }
 
 }
