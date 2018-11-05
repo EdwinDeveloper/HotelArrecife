@@ -1,0 +1,10 @@
+<div class="main-deparment-container">
+  <ul>
+    <li class="aparments" *ngFor="let valor of department">{{valor.code}} <span>{{valor.description}}</span>
+    <span *ngIf="valor.status_free===false"
+          [style.background-color]="valor.price <= 2500 ? 'green' : 'blue' "
+          [style.color]="valor.price <=2500 ? 'white' : 'orange' "
+          >Disponible</span>
+    </li>
+  </ul>
+</div>

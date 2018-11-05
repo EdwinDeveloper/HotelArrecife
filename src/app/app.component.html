@@ -1,0 +1,16 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to here my frined to {{ title }}!
+  </h1>
+  <h2>{{Ciudad}}</h2>
+  <h3>{{Ubicacion}}</h3>
+  <h4>{{Referencia}}</h4>
+  <button (click)="ocultarComponente(true)" *ngIf="!mostrar">Mostrar</button>
+  <button (click)="ocultarComponente(false)" *ngIf="mostrar">Ocultar</button>
+  <h1>{{title}}</h1>
+  <Edwin *ngIf="mostrar"></Edwin>
+  <hotel></hotel>
+  <departamento></departamento>
+</div>
+<router-outlet></router-outlet>
