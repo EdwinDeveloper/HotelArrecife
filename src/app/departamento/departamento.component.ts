@@ -10,15 +10,17 @@ export class DepartamentoComponent implements OnInit {//clase DepartamentoCompon
   public direccion:String[];
   public area:String[];
   public color:String;
+  public mi_depa:string;
   constructor() {//constructor para llamar el array declarado y asignarle objetos
     this.direccion=new Array();
     this.area=new Array();
     this.color="yellow";
+    this.mi_depa="el centro";
     this.department=[//le asignamos al array de objetos 3 objetos tipo apartment
-      new apartment(1,"Av tepic Vallarta","ATV1","Avenue view","School area",false,2500),
+      new apartment(1,"Av tepic Vallarta","ATV1","Avenue view","School area",false,3500),
       new apartment(2,"La abuela","ATV2","Avenue view","School area",true,2500),
       new apartment(3,"Azules","ATV3","widthout view","Footbol stadium",false,2500),
-      new apartment(3,"Azules","ATV4","widthout view","hospital",false,2500)
+      new apartment(3,"Azules","ATV4","widthout view","hospital",false,3500)
     ]
   }
 
@@ -36,5 +38,21 @@ export class DepartamentoComponent implements OnInit {//clase DepartamentoCompon
       });
       console.log(this.area);
   }
-
+  getMiDepa(){
+    alert(this.mi_depa);
+  }
+  saveDepa(){
+    if(this.direccion.indexOf(this.mi_depa) < 0){
+      this.direccion.push(this.mi_depa);
+    } 
+  }
+  deleteDepa(index:number){
+    this.department.splice(index,1);
+  }
+  onblur(){
+    console.log("Saliendo del input");
+  }
+  onKeyUp(){
+    console.log("Key Up");
+  }
 }

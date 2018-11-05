@@ -1,18 +1,29 @@
 <div class="main-deparment-container">
   <ul>
-    <li class="aparments" *ngFor="let valor of department">{{valor.code}} <span>{{valor.description}}</span>
+    <li class="aparments" *ngFor="let valor of department;let indice=index">{{valor.code}} <span>{{valor.description}} +" : "+{{indice}}</span>
 
       <span [ngStyle]="{
         'text-decoration': valor.direction=='hospital' ? 'line-throught' : 'none'
       }">{{des}}<br></span>
-
+    <button (click)="deleteDepa(indice)">Eliminar</button>
+    <!----[class.extra-ejemplo] añade esa clase en caso de cumplirse la condicion-->
     <span *ngIf="valor.status_free===false"
+          
+          [class.extra-ejemplo]="valor.price >=3000"
+          [ngClass]="{
+            rojo: valor.price < 2800,
+            negro: valor.direction=='hospital'
+          }"
           [style.background-color]="valor.price <= 2500 ? 'green' : 'blue' "
           [style.color]="valor.price <=2500 ? 'white' : 'orange' "
           >Disponible</span>
     </li>
   </ul>
-  <label for="">va</label>
+  <input type="text" id="mi_depa" [(ngModel)]="mi_depa"><button (click)="getMiDepa()" >Ver</button><br>
+  <button (click)="saveDepa()">Save</button><br>
+  <strong>{{mi_depa}}</strong><br>
+  <label for="">va</label><br>
+  <input type="text" [(ngModel)]=color (blur)="onblur()" (keyup.enter)="onKeyUp()">
   <ul [ngSwitch]="color">
     <li *ngSwitchCase="'yellow'">
         <span [ngStyle]="{'background-color':color}">El color asignado es {{color}} en [ngSwitch]</span>
