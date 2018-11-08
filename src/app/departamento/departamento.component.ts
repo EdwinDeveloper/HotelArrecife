@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';//se importa la clase component principal de angular
 import { apartment } from '../models/apartment';//se inporta la clase apartment dentro de carpeta models
+import { DepartamentoService } from '../services/departamentos.service';
 @Component({//agregamos un decorador
   selector: 'departamento',//nombre del selector del componente a usar en el html
   templateUrl: './departamento.component.html',//ruta de la vista html del componente
-  styleUrls: ['./departamento.component.scss']//ruta del archivo scss estilos del componente
+  styleUrls: ['./departamento.component.scss'],//ruta del archivo scss estilos del componente
+  providers:[DepartamentoService]
 })
 export class DepartamentoComponent implements OnInit {//clase DepartamentoComponent que implementa interfaz OnInit
   public department:Array<apartment>;//Declaro array tipo objetos apartment
@@ -11,22 +13,21 @@ export class DepartamentoComponent implements OnInit {//clase DepartamentoCompon
   public area:String[];
   public color:String;
   public mi_depa:string;
-  constructor() {//constructor para llamar el array declarado y asignarle objetos
+  constructor(private _departamentoService:DepartamentoService) {//constructor para llamar el array declarado y asignarle objetos
     this.direccion=new Array();
     this.area=new Array();
     this.color="yellow";
     this.mi_depa="el centro";
-    this.department=[//le asignamos al array de objetos 3 objetos tipo apartment
-      new apartment(1,"Av tepic Vallarta","ATV1","Avenue view","School area",false,3500),
-      new apartment(2,"La abuela","ATV2","Avenue view","School area",true,2500),
-      new apartment(3,"Azules","ATV3","widthout view","Footbol stadium",false,2500),
-      new apartment(3,"Azules","ATV4","widthout view","hospital",false,3500)
-    ]
+    
   }
 
-  ngOnInit() {//se ejecuta al iniciar el componente despues del constructor
+  ngOnInit() {
+    //se ejecuta al iniciar el componente despues del constructor
     //console.log(this.department);//mostramos en consola el array de objetos
+    this.department = this._departamentoService.getDepartamentos();
+    alert(this._departamentoService.getTexto());
     this.getDirection();
+    
   }
   getDirection(){
       this.department.forEach((apartment,index)=>{

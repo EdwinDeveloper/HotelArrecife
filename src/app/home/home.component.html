@@ -1,0 +1,14 @@
+<h3>Hola aqui debe aparecer</h3>
+<h1 *ngIf="nombre">Hola amigo {{nombre}}</h1>
+
+<div *ngIf="identificado; then siIdentificado else noIdentificado"></div>
+
+<ng-template #siIdentificado>
+    <h1>Funcion IF SI ENTRA</h1>
+    <button (click)="unIdentificar()">Borrar Identificacion</button>
+</ng-template>
+
+<ng-template #noIdentificado>
+    <h2>NO IDENTIFICADO NO ENTRA</h2>
+    <BUtton (click)="Identificar()">Identificar</BUtton>
+</ng-template>

@@ -6,11 +6,21 @@
   <h2>{{Ciudad}}</h2>
   <h3>{{Ubicacion}}</h3>
   <h4>{{Referencia}}</h4>
+  <br>
+    <nav>
+        <a [routerLink]="['/Home']" [routerLinkActive]="['active']">Home</a>
+        &nbsp;
+        <a [routerLink]="['/Hotel']" [routerLinkActive]="['active']">Hotel</a>
+        &nbsp;
+        <a [routerLink]="['/Edwin']" [routerLinkActive]="['active']">Edwin</a>
+        &nbsp;
+        <a [routerLink]="['/Departa']" [routerLinkActive]="['active']">Departamento</a>
+    </nav>
+  <br>
+  <hr>
   <button (click)="ocultarComponente(true)" *ngIf="!mostrar">Mostrar</button>
   <button (click)="ocultarComponente(false)" *ngIf="mostrar">Ocultar</button>
   <h1>{{title}}</h1>
-  <Edwin *ngIf="mostrar"></Edwin>
-  <hotel></hotel>
-  <departamento></departamento>
+  <router-outlet></router-outlet>
 </div>
-<router-outlet></router-outlet>
+
