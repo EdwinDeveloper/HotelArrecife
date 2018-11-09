@@ -8,11 +8,13 @@ import { EdwinComponent } from '../Edwin/edwin.component';
 import { DepartamentoComponent } from '../departamento/departamento.component';
 //import { ModuleWithProviders } from '@angular/compiler/src/core';
 import { HomeComponent } from '../home/home.component';
+import { ExternoComponent } from '../externo/externo.component';
 
 const appRoutes:Routes=[
     
     {path:'', component:HomeComponent},
     {path:'Home',component:HomeComponent},
+    {path:'externo',component:ExternoComponent},
     //{path:'Home/:nombre', component:HomeComponent},
     //{path:'Home/:nombre/:apellidos', component:HomeComponent},//variable apellidos opcional
     {path:'Hotel', component:HotelComponent},
