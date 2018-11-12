@@ -13,6 +13,9 @@ import { DepartamentoComponent } from './departamento/departamento.component';
 import { HomeComponent } from './home/home.component';
 import { ExternoComponent } from './externo/externo.component';
 
+import { CalculadoraPipe } from './pipes/calculadora.pipes';
+import { ContactComponent } from './contact/contact.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +23,9 @@ import { ExternoComponent } from './externo/externo.component';
     HotelComponent,
     DepartamentoComponent,
     HomeComponent,
-    ExternoComponent
+    ExternoComponent,
+    CalculadoraPipe,
+    ContactComponent
   ],
   imports: [
     BrowserModule,

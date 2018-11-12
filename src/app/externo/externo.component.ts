@@ -11,7 +11,8 @@ export class ExternoComponent implements OnInit {
   public user:any;
   public firstName:any;
   public userId:any;
-
+  public fecha:any;
+  public fechaFija:any;
 
 
   constructor(private _peticionesService:PeticionesService) {
@@ -22,6 +23,9 @@ export class ExternoComponent implements OnInit {
 
   ngOnInit() {
      this.cargaUsuario();
+     this.fecha = new Date();
+     this.fechaFija = new Date(2019,5,11);
+     
   }
   cargaUsuario(){
     this.user=false;

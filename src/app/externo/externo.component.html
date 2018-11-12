@@ -1,4 +1,9 @@
 
+<h1>{{fecha}}</h1>
+<h3>{{fecha | date:'fullDate' | lowercase}}</h3>
+<h3>{{fecha | date:'dd/mm/yy' | uppercase}}</h3>
+<h2>Fecha fija {{fechaFija}}</h2>
+<h2>{{4 | calculadora : 4}}</h2>
 <input type="text" [(ngModel)]="userId" (blur)="cargaUsuario()"/>
 <label for="">Hola amigos mios</label>
 <div *ngIf="!user">

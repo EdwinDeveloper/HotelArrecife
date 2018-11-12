@@ -1,0 +1,24 @@
+<h2>Contact Fomr</h2>
+<br>
+<form #formContacto="ngForm" (ngSubmit)="onSubmit(formContacto)">
+  <label for="nombre">Nombre</label><br>
+  <input type="text" name="nombre" #nombre="ngModel" [(ngModel)]="usu.nombre" required pattern="[a-zA-Z]+">
+  <span *ngIf="nombre.touched && !nombre.valid">El nombre es obligatorio</span>
+  <br>
+
+  <label for="apellidos">Apellidos</label><br>
+  <input type="text" name="apellidos" #apellidos="ngModel" [(ngModel)]="usu.apellidos" required  pattern="[a-zA-Z]+">
+  <span *ngIf="apellidos.touched && !apellidos.valid">El Apellido es obligatorio</span><br>
+
+  <label for="email">Email</label><br>
+  <input type="text" name="email" #email="ngModel" [(ngModel)]="usu.email" required  pattern="[a-zA-Z]+">
+  <span *ngIf="email.touched && !email.valid">El email es obligatorio</span>
+  <br>
+
+  <label for="mensaje">Mensaje</label><br>
+  <input type="text" name="mensaje" #mensaje="ngModel" [(ngModel)]="usu.mensaje" required  pattern="[a-zA-Z]+">
+  <span *ngIf="mensaje.touched && !mensaje.valid">El email es obligatorio</span>
+  <br>
+
+  <input type="submit" value="Enviar" [disabled]="!formContacto.form.valid"><br>
+</form>

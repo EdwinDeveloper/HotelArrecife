@@ -9,12 +9,15 @@ import { DepartamentoComponent } from '../departamento/departamento.component';
 //import { ModuleWithProviders } from '@angular/compiler/src/core';
 import { HomeComponent } from '../home/home.component';
 import { ExternoComponent } from '../externo/externo.component';
+import { ContactComponent } from '../contact/contact.component';
+import { from } from 'rxjs';
 
 const appRoutes:Routes=[
     
     {path:'', component:HomeComponent},
     {path:'Home',component:HomeComponent},
     {path:'externo',component:ExternoComponent},
+    {path:'contact',component:ContactComponent},
     //{path:'Home/:nombre', component:HomeComponent},
     //{path:'Home/:nombre/:apellidos', component:HomeComponent},//variable apellidos opcional
     {path:'Hotel', component:HotelComponent},
