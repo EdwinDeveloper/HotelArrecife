@@ -1,11 +1,13 @@
 import { Component, OnInit , DoCheck ,OnDestroy } from '@angular/core';
-import { nom }
+//import { nom }
 @Component({
     selector: 'Edwin',
     templateUrl: './edwin.component.html'
 })
 
 export class EdwinComponent implements OnInit,DoCheck{
+   
+    
     public hotel:string;
     public ubicacion:string;
     constructor(){
