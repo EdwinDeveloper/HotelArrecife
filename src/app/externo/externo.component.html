@@ -1,4 +1,20 @@
 
+<form #newUser="ngForm" (ngSubmit)="onSubmit(newUser)">
+    <p>
+        <label for="name">Nombre : </label>
+        <input type="text" name="name" #name="ngModel" [(ngModel)]="new_user.name" required>
+        <span *ngIf="name.touched && !name.valid"></span>
+    </p>
+    <p>
+        <label for="job">Trabajo : </label>
+        <input type="text" name="job" #job="ngModel" [(ngModel)]="new_user.job" required>
+        <span *ngIf="job.touched && !job.valid"></span>
+    </p>
+    <input type="submit" value="Guardar Usuario" [disabled]="!newUser.form.valid">
+</form>
+
+<hr>
+
 <h1>{{fecha}}</h1>
 <h3>{{fecha | date:'fullDate' | lowercase}}</h3>
 <h3>{{fecha | date:'dd/mm/yy' | uppercase}}</h3>
