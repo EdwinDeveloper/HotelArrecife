@@ -20,6 +20,5 @@ export class PeticionesService{
         let params = JSON.stringify(user);
         let Headers = new HttpHeaders().set('Content-Type','aplication/json');
         return this._http.post(this.url+"api/useres",params,{headers:Headers});
-        
     }
 }
